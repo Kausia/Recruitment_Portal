@@ -1,30 +1,156 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">Recruitment_Portal</a>
-    </div>
-</div>
+﻿<style>
+    .custom_img{
+        width: 30px;
+        height: 30px;
+        display: block; /* Makes the img act like a block */
+        margin: 0 auto; /* Centers horizontally */
+    }
 
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
 
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="nav flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
+    .custom-button {
+        color: black !important;
+       
+    }
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
+        .custom-button:hover {
+            background-color: #FBBF24 !important;
+        }
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
-    </nav>
-</div>
+    .condiment-regular {
+        font-family: "Condiment", cursive;
+        font-size: 32px;
+        font-style: normal;
+    }
+    /* Remove gutters only on small screens */
+    @@media (max-width: 960px) { /* 960px = Md breakpoint in MudBlazor */
+        .no-gutter .mud-toolbar-gutters
 
+    {
+        padding-left: 16px !important;
+        padding-right: 0 !important;
+    }
+
+    }
+    /* Default (desktop/tablet sizes) */
+    .custom_img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .custom_text {
+        font-size: 14px;
+    }
+
+    /* Mobile: apply smaller size */
+    @@media (max-width: 768px) {
+        .custom_img
+
+    {
+        width: 16px;
+        height: 16px;
+    }
+
+    .custom_text {
+        font-size: 12px;
+    }
+
+    }
+</style>
+<MudAppBar Class="no-gutter d-flex justify-between p-2" Style="background-color:#FFF8E1; min-height:40px; padding:4px 0px !important;"
+           Elevation="0">
+
+    <!-- Left: Logo -->
+    <MudText Typo="Typo.h6" Class="ml-2 text-dark condiment-regular">
+        NextStep  Jobs
+    </MudText>
+    <!-- Spacer -->
+    <MudSpacer />
+
+    <!-- Desktop/Tablet navigation -->
+    <MudHidden Breakpoint="Breakpoint.SmAndDown" Style="margin-top: 5px;">
+        <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="2">
+
+            <MudButton Class="custom-button">
+                <MudStack Row="false" Spacing="1" class="p-1" Justify="Justify.Center">
+                    <img class="custom_img" src="Images/house-icon.png" />
+                    <span>Home</span>
+                </MudStack>
+            </MudButton> 
+            <MudButton Class="custom-button">
+                <MudStack Row="false" Spacing="1" class="p-1" Justify="Justify.Center">
+                    <img class="custom_img" src="Images/search-company-icon.png" />
+                    <span>Jobs</span>
+                </MudStack>
+            </MudButton>
+            <MudButton Class="custom-button">
+                <MudStack Row="false" Spacing="1" class="p-1" Justify="Justify.Center">
+                    <img class="custom_img" src="Images/residential-apartments-icon.png" />
+                    <span>Companies</span>
+                </MudStack>
+            </MudButton>
+            <MudButton Class="custom-button">
+                <MudStack Row="false" Spacing="1" class="p-1" Justify="Justify.Center">
+                    <img class="custom_img" src="Images/conference-video-call-icon.png" />
+                    <span>Webinars</span>
+                </MudStack>
+            </MudButton>
+            <MudButton Class="custom-button">
+                <MudStack Row="false" Spacing="1" class="p-1" Justify="Justify.Center">
+                    <img class="custom_img" src="Images/landline-line-icon.png" />
+                    <span>Contact</span>
+                </MudStack>
+            </MudButton> 
+        </MudStack>
+    </MudHidden>
+    <!-- Mobile toggle button -->
+    <MudHidden Breakpoint="Breakpoint.MdAndUp">
+        <MudMenu AnchorOrigin="Origin.BottomRight"
+                 TransformOrigin="Origin.TopRight"
+                 style="padding: 0 !important; margin: auto;">
+            <ActivatorContent>
+                <MudButton Variant="Variant.Text">
+                    <img class="custom_img" src="Images/menu.png" alt="Menu" />
+                </MudButton>
+            </ActivatorContent>
+            <ChildContent>
+                <MudMenuItem>
+                    <MudStack Row="true" Spacing="1" class="p-1">
+                        <img class="custom_img" src="Images/house-icon.png" />
+                        <span class="custom_text">Home</span>
+                    </MudStack>
+                </MudMenuItem>
+                <MudMenuItem>
+                    <MudStack Row="true" Spacing="1" class="p-1">
+                        <img class="custom_img" src="Images/search-company-icon.png" />
+                        <span class="custom_text">Jobs</span>
+                    </MudStack>
+                </MudMenuItem>
+                <MudMenuItem>
+                    <MudStack Row="true" Spacing="1" class="p-1" >
+                        <img class="custom_img" src="Images/residential-apartments-icon.png" />
+                        <span class="custom_text">Companies</span>
+                    </MudStack>
+                </MudMenuItem>
+                <MudMenuItem>
+                    <MudStack Row="true" Spacing="1" class="p-1" >
+                        <img class="custom_img" src="Images/conference-video-call-icon.png" />
+                        <span class="custom_text">Webinars</span>
+                    </MudStack>
+                </MudMenuItem>
+                <MudMenuItem>
+                    <MudStack Row="true" Spacing="1" class="p-1">
+                        <img class="custom_img" src="Images/landline-line-icon.png" />
+                        <span class="custom_text">Contact</span>
+                    </MudStack>
+                </MudMenuItem>
+            </ChildContent>
+        </MudMenu>
+    </MudHidden>
+</MudAppBar>
+
+@code {
+    private void ToggleDrawer()
+    {
+        Console.WriteLine("Menu Button Clicked");
+    }
+}

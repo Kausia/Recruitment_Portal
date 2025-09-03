@@ -10,6 +10,7 @@ builder.Services.AddRazorComponents()
 //Added MudServices
 builder.Services.AddMudServices();
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

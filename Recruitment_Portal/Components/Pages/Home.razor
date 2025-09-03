@@ -1,7 +1,461 @@
-﻿@page "/"
+﻿@* @page "/"
+@using Recruitment_Portal.Components.Layout
+<style>
+	body,
+	html {
+		overflow-x: hidden;
+	}
 
-<PageTitle>Home</PageTitle>
+	.home {
+		background: url("Images/banner-bg.svg");
+		background-repeat: no-repeat;
+		background-position: center bottom;
+		background-size: cover; /* Use cover to ensure full width coverage */
+		padding-top: 103px;
+		padding-bottom: 100px; /* Added bottom padding to show complete wave */
+	}
+	@@media (max-width: 991px) {
+		.home
 
-<h1>Hello, world!</h1>
+	{
+		padding-top: 71px;
+		padding-bottom: 80px; /* Adjusted for mobile */
+	}
 
-Welcome to your new app.
+	}
+
+	.main-banner {
+		padding: 4.2rem 0 14rem 0;
+		background-size: cover;
+	}
+	@@media (max-width: 991px) {
+		.main-banner
+
+	{
+		padding: 1rem;
+		margin-bottom: 50px;
+	}
+
+	}
+
+	.banner-title {
+		width: 56%;
+	}
+	@@media (max-width: 991px) {
+		.banner-title
+
+	{
+		width: 100%;
+	}
+
+	}
+
+	section {
+		padding: 120px 0 0 0;
+	}
+	@@media (max-width: 1024px) {
+		.section
+
+	{
+		padding: 130px 0 0 0;
+	}
+
+	}
+	@@media (max-width: 991px) {
+		.section
+
+	{
+		padding: 70px 0 0 0;
+	}
+
+	}
+
+	.condiment-regular {
+		font-family: "Condiment", cursive;
+		font-size: 32px;
+		font-style: normal;
+	}
+
+	.banner-text {
+		flex: 0 0 40%; /* 40% width */
+		max-width: 40%;
+	}
+
+	.banner-image {
+		flex: 0 0 60%; /* 60% width */
+		max-width: 60%;
+	}
+
+	@@media (max-width: 991px) {
+		.banner-text, .banner-image
+
+	{
+		flex: 0 0 100%;
+		max-width: 100%; /* Stack on mobile */
+	}
+
+	}
+</style>
+<div>
+	<NavMenu />
+	<section id="home" class="home">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="main-banner">
+						<div class="d-sm-flex justify-content-between">
+
+							<div data-aos="zoom-in-up">
+								<div class="banner-title">
+									<h3 class="condiment-regular">
+									Find Jobs. Build Careers. Hire Smarter.
+									</h3>
+								</div>
+								<p class="mt-3">
+								Thousands of opportunities. Verified employers. Smart matching. Whether you’re here to find your first job, your dream role, or the right candidate, we make the process simple, fast, and effective.
+							</p>
+								<a href="#" class="btn btn-secondary mt-3">Search Jobs</a>
+								<a href="#" class="btn btn-secondary mt-3">Post a Job</a>
+							</div>
+							<div class="mt-5 mt-lg-0">
+								<img src="Images/Portal_Picture.png" style="background-color: transparent;" class="img-fluid" data-aos="zoom-in-up">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+ *@
+@page "/"
+@using Recruitment_Portal.Components.Layout
+<style>
+	body,
+	html {
+		overflow-x: hidden;
+	}
+
+	.home {
+		background: url("Images/banner-bg.svg");
+		background-repeat: no-repeat;
+		background-position: center bottom;
+		background-size: cover;
+		padding-top: 20px;
+		padding-bottom: 10px;
+	}
+
+	@@media (max-width: 991px) {
+		.home
+
+	{
+		padding-top: 80px; /* Add top padding to account for fixed nav */
+		padding-bottom: 20px;
+	}
+
+	}
+
+	.main-banner {
+		padding: 1rem 0 0 0;
+		background-size: cover;
+	}
+
+	@@media (max-width: 991px) {
+		.main-banner
+
+	{
+		padding: 0; /* Remove extra padding on mobile */
+		margin-bottom: 0;
+	}
+
+	}
+
+	.banner-title {
+		width: 100%; /* Full width within the text column */
+	}
+
+	section {
+		padding: 0;
+	}
+
+	@@media (max-width: 1024px) {
+		section
+
+	{
+		padding: 0;
+	}
+
+	}
+
+	@@media (max-width: 991px) {
+		section
+
+	{
+		padding: 0;
+	}
+
+	}
+
+	.condiment-regular {
+		font-family: "Condiment", cursive;
+		font-size: 32px;
+		font-style: normal;
+	}
+
+	/* Updated responsive layout - text above, image below on desktop */
+	.banner-content {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		min-height: 70vh;
+		justify-content: flex-start;
+		padding: 2rem 0 0 0;
+	}
+
+	.banner-text {
+		flex: 0 0 auto;
+		max-width: 60%;
+		text-align: center;
+		margin-bottom: 6rem;
+	}
+
+		.banner-text h3 {
+			font-size: 3.5rem;
+			line-height: 1.1; /* Improved line height */
+			color: #2c3e50;
+			font-weight: 600;
+			margin-bottom: 1rem; /* Add consistent bottom margin */
+		}
+
+		.banner-text p {
+			font-size: 1.2rem;
+			color: #6c757d;
+			margin-bottom: 2rem;
+			max-width: 100%;
+			line-height: 1.5; /* Better readability */
+		}
+
+	.banner-image {
+		flex: 1;
+		max-width: 70%;
+		justify-content: center;
+		align-items: flex-end;
+	}
+
+		.banner-image img {
+			width: 100%;
+			height: auto;
+			max-height: 400px;
+			object-fit: contain;
+		}
+
+	/* Mobile responsive - fixed spacing and positioning issues */
+	@@media (max-width: 991px) {
+		.banner-content
+
+	{
+		    flex-direction: column;
+    align-items: flex-start; 
+	gap: 0 !important;
+    min-height: auto;       
+    text-align: center;
+    justify-content: flex-start;
+    padding: 1rem 0;
+
+	}
+
+	.banner-text,
+	.banner-image {
+		flex: 0 0 auto; /* Changed from 100% to auto */
+		max-width: 100%;
+	}
+
+	.banner-text {
+		order: 1;
+		margin-bottom: 1rem; /* Reduced bottom margin */
+		padding: 0 1rem; /* Add horizontal padding */
+	}
+
+	.banner-image {
+		order: 2;
+		text-align: center;
+		margin-top: 0; /* Ensure no extra top margin */
+	}
+
+	.banner-text h3 {
+		font-size: 2.2rem; /* Slightly larger for better readability */
+		line-height: 1.2;
+		margin-bottom: 0.8rem; /* Consistent spacing */
+	}
+
+	.banner-text p {
+		font-size: 1.1rem;
+		margin-bottom: 1.5rem;
+		line-height: 1.4;
+	}
+
+	.banner-image img {
+		width: auto;
+		max-height: 300px; /* Reduced height for mobile */
+	}
+
+	}
+
+	/* Tablet-specific adjustments */
+	@@media (max-width: 768px) and (min-width: 576px) {
+		.banner-content
+
+	{
+		padding: 1.5rem 0;
+		gap: 1.5rem;
+	}
+
+	.banner-text h3 {
+		font-size: 2.5rem;
+	}
+
+	}
+
+	/* Small mobile devices */
+	@@media (max-width: 575px) {
+		.banner-content
+
+	{
+		padding: 1rem 0;
+		gap: 1rem;
+	}
+
+	.banner-text {
+		padding: 0 0.5rem;
+	}
+
+		.banner-text h3 {
+			font-size: 1.8rem;
+			line-height: 1.3;
+		}
+
+		.banner-text p {
+			font-size: 1rem;
+			margin-bottom: 1rem;
+		}
+
+	.banner-image img {
+		max-height: 250px;
+	}
+
+	}
+
+	/* Large desktop adjustments */
+	@@media (min-width: 1400px) {
+		.banner-text h3
+
+	{
+		font-size: 4rem;
+	}
+
+	.banner-text p {
+		font-size: 1.3rem;
+	}
+
+	.banner-image img {
+		max-height: 450px;
+	}
+
+	.banner-text {
+		max-width: 50%;
+	}
+
+	}
+
+	/* Medium desktop adjustments */
+	@@media (max-width: 1199px) and (min-width: 992px) {
+		.banner-text h3
+
+	{
+		font-size: 3rem;
+	}
+
+	.banner-text {
+		max-width: 70%;
+	}
+
+	.banner-image {
+		max-width: 80%;
+	}
+
+	}
+
+	/* Button styling improvements */
+	.banner-buttons {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+		justify-content: center; /* Center buttons on all devices */
+	}
+
+	.btn-secondary {
+		padding: 12px 30px;
+		font-weight: 600;
+		border-radius: 25px;
+		transition: all 0.3s ease;
+		text-decoration: none;
+		display: inline-block;
+	}
+
+		.btn-secondary:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+		}
+
+	@@media (max-width: 575px) {
+		.banner-buttons
+
+	{
+		flex-direction: column;
+		width: 100%;
+		gap: 0.8rem;
+	}
+
+	.btn-secondary {
+		width: 100%;
+		text-align: center;
+		padding: 14px 20px; /* Slightly larger touch targets */
+	}
+
+	}
+</style>
+<div>
+	<NavMenu />
+	<section id="home" class="home">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="main-banner">
+						<div class="banner-content">
+							<div class="banner-text" data-aos="zoom-in-up">
+								<div class="banner-title">
+									<h3 class="condiment-regular">
+										Find Jobs. Build Careers. Hire Smarter.
+									</h3>
+								</div>
+								<p class="mt-2">
+									Thousands of candidates and employers trust us to make meaningful connections.
+								</p>
+								@* <div class="banner-buttons">
+									<a href="#" class="btn btn-secondary">Search Jobs</a>
+									<a href="#" class="btn btn-secondary">Post a Job</a>
+								</div> *@
+							</div>
+							<div class="banner-image" data-aos="zoom-in-up">
+								<img src="Images/Portal_Picture.png" style="background-color: transparent;" class="img-fluid" alt="Portal Picture">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="features">
+
+	</section>
+</div>
